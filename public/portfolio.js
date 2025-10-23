@@ -439,7 +439,7 @@ window.addEventListener('resize', setVH);
 // ============================================
 // 25. CONSOLE EASTER EGG
 // ============================================
-console.log('%c👋 Hello, Developer!', 'color: #f59e0b; font-size: 24px; font-weight: bold;');
+console.log('%c👋 Hello, Developer!', 'color: #20b2aa; font-size: 24px; font-weight: bold;');
 console.log('%cLooking for something? Feel free to reach out!', 'color: #6b7280; font-size: 14px;');
 console.log('%c🌐 Portfolio by Mohammed Sahl', 'color: #222; font-size: 12px;');
 

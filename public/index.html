@@ -36,15 +36,15 @@
             foreground: 'hsl(0 0% 13%)',
             card: 'hsl(0 0% 100%)',
             'card-foreground': 'hsl(0 0% 13%)',
-            primary: 'hsl(32 93% 54%)',
+            primary: 'hsl(180 60% 50%)',
             'primary-foreground': 'hsl(0 0% 100%)',
-            secondary: 'hsl(36 30% 92%)',
+            secondary: 'hsl(180 30% 92%)',
             'secondary-foreground': 'hsl(0 0% 13%)',
-            muted: 'hsl(36 20% 90%)',
+            muted: 'hsl(180 20% 90%)',
             'muted-foreground': 'hsl(0 0% 45%)',
-            accent: 'hsl(32 93% 54%)',
+            accent: 'hsl(180 60% 50%)',
             'accent-foreground': 'hsl(0 0% 100%)',
-            border: 'hsl(36 20% 85%)',
+            border: 'hsl(180 20% 85%)',
           },
           borderRadius: {
             'custom': '0.75rem',
@@ -139,7 +139,7 @@
      <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"></div>
      
      <!-- Grid Pattern Overlay -->
-     <div class="absolute inset-0 z-0 opacity-[0.02]" style="background-image: linear-gradient(hsl(32 93% 54% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(32 93% 54% / 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+     <div class="absolute inset-0 z-0 opacity-[0.02]" style="background-image: linear-gradient(hsl(180 60% 50% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(180 60% 50% / 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
      
      <!-- Main Container -->
      <div class="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
@@ -194,7 +194,7 @@
            
            <!-- Image Container with Border -->
            <div class="relative group">
-             <!-- Orange Circle Background -->
+             <!-- Teal Circle Background -->
              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] lg:w-[580px] lg:h-[580px] bg-gradient-to-br from-primary to-primary/80 rounded-full blur-xl opacity-70"></div>
              
              <!-- Image - Responsive -->
@@ -242,7 +242,7 @@
          <!-- Outer glass transparent circle -->
          <div class="absolute inset-0 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/20 shadow-2xl"></div>
          
-         <!-- Inner orange circle -->
+         <!-- Inner teal circle -->
          <div class="relative w-20 h-20 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-all shadow-xl">
            <svg class="text-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
@@ -253,8 +253,8 @@
    </section>
 
   <!-- About Section -->
-   <section id="about" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden" style="background-color: #fff1d8;">
-    <!-- Decorative Orange Elements with Animation -->
+   <section id="about" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-secondary">
+    <!-- Decorative Teal Elements with Animation -->
     <div class="absolute top-20 right-20 w-16 h-2 bg-primary animate-float shadow-lg"></div>
     <div class="absolute top-32 right-32 w-16 h-2 bg-primary rotate-90 animate-float shadow-lg" style="animation-delay: 0.5s"></div>
     <div class="absolute bottom-40 left-20 w-32 h-2 bg-primary rotate-45 animate-float shadow-lg" style="animation-delay: 1s"></div>
@@ -1795,7 +1795,7 @@
           position: fixed;
           top: 20px;
           right: 20px;
-          background: #f59e0b;
+          background: #20b2aa;
           color: white;
           padding: 16px 20px;
           border-radius: 8px;
