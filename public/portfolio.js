@@ -294,56 +294,8 @@ backToTopBtn.addEventListener('click', () => {
 // ============================================
 // 15. CONTACT FORM HANDLING
 // ============================================
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  // Get form data
-  const formData = new FormData(contactForm);
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const message = formData.get('message');
-  
-    // Basic validation
-    if (!name || !email || !message) {
-      showFormMessage('Please fill in all fields.', 'error');
-      return;
-    }
-    
-    if (!isValidEmail(email)) {
-      showFormMessage('Please enter a valid email address.', 'error');
-      return;
-    }
-    
-    // Show loading state
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<svg class="animate-spin inline-block mr-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="4" fill="none"/></svg>Sending...';
-    submitBtn.disabled = true;
-    
-    // Simulate form submission (replace with actual API call in production)
-    setTimeout(() => {
-      showFormMessage('Thank you for reaching out! I\'ll get back to you soon. 🚀', 'success');
-  contactForm.reset();
-      submitBtn.innerHTML = originalBtnText;
-      submitBtn.disabled = false;
-  
-  // Hide message after 5 seconds
-  setTimeout(() => {
-    formMessage.classList.add('hidden');
-  }, 5000);
-    }, 1500);
-  });
-}
-
-function showFormMessage(message, type) {
-  formMessage.classList.remove('hidden', 'success-message', 'error-message');
-  formMessage.classList.add(type === 'success' ? 'success-message' : 'error-message');
-  formMessage.textContent = message;
-}
+// Note: Contact form handling is now managed in index.html using EmailJS
+// This section has been removed to prevent conflicts with the EmailJS handler
 
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
