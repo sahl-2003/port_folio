@@ -1757,93 +1757,69 @@
     })();
 
     // CV Download Function
-    async function downloadCV() {
-      const button = event.target.closest('button');
-      const originalText = button ? button.innerHTML : '';
+    function downloadCV() {
+      // First, check if the CV file exists
+      const cvPath = 'cv/Mohammed_Sahl_CV.pdf';
       
-      try {
-        // Show loading state
-        if (button) {
-          button.innerHTML = '<svg class="inline-block mr-2 h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="4" fill="none"/></svg>Downloading...';
-          button.disabled = true;
-        }
-        
-        // Method 1: Try fetch and blob download (most reliable)
-        try {
-          const response = await fetch('./cv/Mohammed_Sahl_CV.pdf');
+      // Try to fetch the file to check if it exists
+      fetch(cvPath)
+        .then(response => {
           if (response.ok) {
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
+            // File exists, proceed with download
             const link = document.createElement('a');
-            link.href = url;
+            link.href = cvPath;
             link.download = 'Mohammed_Sahl_CV.pdf';
-            link.style.display = 'none';
+            link.target = '_blank';
+            
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
             
-            // Success feedback
-            if (button) {
-              button.innerHTML = '✅ Downloaded!';
-              setTimeout(() => {
-                button.innerHTML = originalText;
-                button.disabled = false;
-              }, 2000);
-            }
-            
-            console.log('CV downloaded successfully via fetch');
-            return;
+            console.log('CV download initiated successfully');
+          } else {
+            // File doesn't exist, show error message
+            showCVErrorMessage();
           }
-        } catch (fetchError) {
-          console.log('Fetch method failed, trying direct link method:', fetchError);
-        }
-        
-        // Method 2: Direct link download
-        const link = document.createElement('a');
-        link.href = './cv/Mohammed_Sahl_CV.pdf';
-        link.download = 'Mohammed_Sahl_CV.pdf';
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        // Success feedback
-        if (button) {
-          button.innerHTML = '✅ Downloaded!';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        }
-        
-        console.log('CV download initiated via direct link');
-        
-      } catch (error) {
-        console.error('Error downloading CV:', error);
-        
-        // Fallback: Open in new tab
-        try {
-          window.open('./cv/Mohammed_Sahl_CV.pdf', '_blank');
-          if (button) {
-            button.innerHTML = '📄 Opened in new tab';
-            setTimeout(() => {
-              button.innerHTML = originalText;
-              button.disabled = false;
-            }, 2000);
-          }
-        } catch (fallbackError) {
-          console.error('All download methods failed:', fallbackError);
-          if (button) {
-            button.innerHTML = '❌ Download failed';
-            setTimeout(() => {
-              button.innerHTML = originalText;
-              button.disabled = false;
-            }, 2000);
-          }
-          alert('Unable to download CV automatically. Please right-click on this button and select "Save link as..." or contact me directly.');
-        }
-      }
+        })
+        .catch(error => {
+          console.error('Error checking CV file:', error);
+          showCVErrorMessage();
+        });
+    }
+    
+    function showCVErrorMessage() {
+      // Create a temporary notification
+      const notification = document.createElement('div');
+      notification.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #f59e0b;
+          color: white;
+          padding: 16px 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 1000;
+          font-family: Inter, sans-serif;
+          font-weight: 500;
+          max-width: 300px;
+        ">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            CV file not found. Please contact me directly.
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      // Remove notification after 5 seconds
+      setTimeout(() => {
+        notification.remove();
+      }, 5000);
     }
 
     // Contact Form Handler
