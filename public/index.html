@@ -26,6 +26,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
   <!-- Tailwind Config -->
   <script>
     tailwind.config = {
@@ -36,15 +39,15 @@
             foreground: 'hsl(0 0% 13%)',
             card: 'hsl(0 0% 100%)',
             'card-foreground': 'hsl(0 0% 13%)',
-            primary: 'hsl(180 60% 50%)',
+            primary: 'hsl(32 93% 54%)',
             'primary-foreground': 'hsl(0 0% 100%)',
-            secondary: 'hsl(180 30% 92%)',
+            secondary: 'hsl(32 30% 92%)',
             'secondary-foreground': 'hsl(0 0% 13%)',
-            muted: 'hsl(180 20% 90%)',
+            muted: 'hsl(32 20% 90%)',
             'muted-foreground': 'hsl(0 0% 45%)',
-            accent: 'hsl(180 60% 50%)',
+            accent: 'hsl(32 93% 54%)',
             'accent-foreground': 'hsl(0 0% 100%)',
-            border: 'hsl(180 20% 85%)',
+            border: 'hsl(32 20% 85%)',
           },
           borderRadius: {
             'custom': '0.75rem',
@@ -132,14 +135,8 @@
 
    <!-- Hero Section - Pro Level Design -->
    <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-background">
-     <!-- Animated Particles Background -->
-     
-     <!-- Subtle gradient orbs -->
-     <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
-     <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"></div>
-     
-     <!-- Grid Pattern Overlay -->
-     <div class="absolute inset-0 z-0 opacity-[0.02]" style="background-image: linear-gradient(hsl(180 60% 50% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(180 60% 50% / 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+     <!-- Particles.js Background -->
+     <div id="particles-js" class="absolute inset-0 z-0 opacity-40"></div>
      
      <!-- Main Container -->
      <div class="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
@@ -253,7 +250,7 @@
    </section>
 
   <!-- About Section -->
-   <section id="about" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-secondary">
+    <section id="about" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden" style="background-color: #fff1d8;">
     <!-- Decorative Teal Elements with Animation -->
     <div class="absolute top-20 right-20 w-16 h-2 bg-primary animate-float shadow-lg"></div>
     <div class="absolute top-32 right-32 w-16 h-2 bg-primary rotate-90 animate-float shadow-lg" style="animation-delay: 0.5s"></div>
@@ -1840,5 +1837,6 @@
         });
     });
   </script>
+
 </body>
 </html>

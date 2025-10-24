@@ -542,5 +542,112 @@ if (document.querySelector('.education-carousel-track')) {
 }
 
 // ============================================
+// 29. PARTICLES.JS BACKGROUND ANIMATION
+// ============================================
+function initParticlesJS() {
+  // Check if Particles.js library is loaded
+  if (typeof particlesJS === 'undefined') {
+    console.warn('⚠️ Particles.js library not loaded. Skipping particle animation.');
+    return;
+  }
+
+  // Check if particles container exists
+  const particlesContainer = document.getElementById('particles-js');
+  if (!particlesContainer) {
+    console.warn('⚠️ Particles container not found. Skipping particle animation.');
+    return;
+  }
+
+  // Initialize Particles.js with orange color scheme
+  particlesJS('particles-js', {
+    particles: {
+      number: {
+        value: 60,
+        density: {
+          enable: true,
+          value_area: 800
+        }
+      },
+      color: {
+        value: '#F59E0B' // Bright orange color
+      },
+      shape: {
+        type: 'circle'
+      },
+      opacity: {
+        value: 0.6,
+        random: true,
+        anim: {
+          enable: true,
+          speed: 1,
+          opacity_min: 0.3,
+          sync: false
+        }
+      },
+      size: {
+        value: 5,
+        random: true,
+        anim: {
+          enable: true,
+          speed: 2,
+          size_min: 1,
+          sync: false
+        }
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#F59E0B',
+        opacity: 0.4,
+        width: 2
+      },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: 'none',
+        random: true,
+        straight: false,
+        out_mode: 'out',
+        bounce: false
+      }
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: {
+          enable: true,
+          mode: 'grab'
+        },
+        onclick: {
+          enable: true,
+          mode: 'push'
+        },
+        resize: true
+      },
+      modes: {
+        grab: {
+          distance: 140,
+          line_linked: {
+            opacity: 0.7
+          }
+        },
+        push: {
+          particles_nb: 4
+        }
+      }
+    },
+    retina_detect: true
+  });
+
+  console.log('✅ Particles.js initialized with orange theme');
+}
+
+// Initialize Particles.js when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Small delay to ensure Particles.js library is fully loaded
+  setTimeout(initParticlesJS, 100);
+});
+
+// ============================================
 // END OF PORTFOLIO JAVASCRIPT
 // ============================================
