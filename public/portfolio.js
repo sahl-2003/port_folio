@@ -649,5 +649,90 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
+// 30. TIMELINE ANIMATIONS
+// ============================================
+const timelineAnimation = {
+  init() {
+    this.observeTimelineItems();
+    this.animateTimelineProgress();
+  },
+  
+  observeTimelineItems() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Force reveal all timeline items after a short delay
+    setTimeout(() => {
+      timelineItems.forEach((item, index) => {
+        item.classList.add('revealed');
+        this.animateTimelineNode(item);
+      });
+    }, 500);
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Staggered animation for timeline items
+          setTimeout(() => {
+            entry.target.classList.add('revealed');
+            this.animateTimelineNode(entry.target);
+          }, index * 200);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    timelineItems.forEach(item => {
+      observer.observe(item);
+    });
+  },
+  
+  animateTimelineNode(timelineItem) {
+    const node = timelineItem.querySelector('.timeline-node');
+    if (node) {
+      // Add pulse animation to the node
+      node.style.animation = 'timelineNodePulse 0.6s ease-out';
+    }
+  },
+  
+  animateTimelineProgress() {
+    const timelineLine = document.querySelector('.timeline-line');
+    if (timelineLine) {
+      // Animate the timeline line progress
+      setTimeout(() => {
+        timelineLine.classList.add('animate');
+      }, 1000);
+    }
+  }
+};
+
+// Timeline node pulse animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes timelineNodePulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      box-shadow: 0 0 0 10px rgba(245, 158, 11, 0.3);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+  }
+`;
+document.head.appendChild(style);
+
+// Initialize timeline animations
+document.addEventListener('DOMContentLoaded', () => {
+  timelineAnimation.init();
+  console.log('✅ Timeline animations initialized');
+});
+
+// ============================================
 // END OF PORTFOLIO JAVASCRIPT
 // ============================================
