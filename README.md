@@ -2,7 +2,7 @@
 
 A modern, animated, and responsive portfolio website showcasing my work as a Software Engineering student. Built with vanilla HTML, CSS, and JavaScript, featuring smooth animations, interactive elements, and a beautiful user interface.
 
-🌐 **Live Demo**: [https://mohammed-sahl.vercel.app/](https://mohammed-sahl.vercel.app/)
+
 
 ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-orange) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
@@ -35,6 +35,10 @@ A modern, animated, and responsive portfolio website showcasing my work as a Sof
 - **Font Awesome**: Icon library
 - **Google Fonts**: Inter, Space Grotesk, and Poppins fonts
 - **EmailJS**: Contact form handling
+
+## 🌐 Live Demo
+
+Visit the live website: **[https://mohammed-sahl.vercel.app/](https://mohammed-sahl.vercel.app/)**
 
 ## 📁 Project Structure
 
@@ -89,6 +93,18 @@ No special prerequisites needed! The website uses CDN links for all external lib
 4. **Access the website**
    - Local: `http://localhost:8000`
    - Or open `index.html` directly in your browser
+
+## 🚀 Deployment
+
+This project is deployed on Vercel. You can visit it at:
+
+**🔗 [https://mohammed-sahl.vercel.app/](https://mohammed-sahl.vercel.app/)**
+
+To deploy your own version:
+1. Fork this repository
+2. Connect your GitHub account to [Vercel](https://vercel.com/)
+3. Import your repository and deploy
+4. Your site will be live automatically!
 
 ## 🎨 Customization
 
@@ -166,10 +182,10 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Mohammed Sahl**
 
-- Portfolio: [Your Portfolio URL]
+- Portfolio: [https://mohammed-sahl.vercel.app/](https://mohammed-sahl.vercel.app/)
 - LinkedIn: [Your LinkedIn Profile]
 - GitHub: [Your GitHub Profile]
-- Email: [Your Email Address]
+- Email: sahlmohammed330@gmail.com
 
 ## 🙏 Acknowledgments
 
@@ -178,6 +194,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - [Tailwind CSS](https://tailwindcss.com/) for utility classes
 - [Font Awesome](https://fontawesome.com/) for icons
 - [EmailJS](https://www.emailjs.com/) for contact form functionality
+- [Vercel](https://vercel.com/) for hosting and deployment
 
 ## 📈 Future Enhancements
 
@@ -192,3 +209,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ⭐ If you like this project, please give it a star on GitHub!
 
+🔗 **Live Website**: [https://mohammed-sahl.vercel.app/](https://mohammed-sahl.vercel.app/)
